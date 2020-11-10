@@ -1,0 +1,9 @@
+AllCops:
+  TargetRubyVersion: 2.6
+
+Rails:
+  Enabled: true
+
+require:
+  - rubocop-rails
+  - rubocop-rspec
