@@ -8,6 +8,16 @@ require:
   - rubocop-rails
   - rubocop-rspec
 
+Style/BlockComments:
+  Enabled: true
+  Exclude:
+    - "spec/spec_helper.rb"
+
+Style/ClassAndModuleChildren:
+  Enabled: true
+  Exclude:
+    - "test/**/*"
+
 Style/Documentation:
   Description: "Document classes and non-namespace modules."
   Enabled: false
@@ -25,3 +35,9 @@ Style/HashSyntax:
 Style/TrailingCommaInHashLiteral:
   EnforcedStyleForMultiline: consistent_comma
   Enabled: true
+
+Style/FrozenStringLiteralComment:
+  EnforcedStyle: never
+
+Style/SymbolArray:
+  Enabled: false
