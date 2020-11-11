@@ -7,3 +7,21 @@ Rails:
 require:
   - rubocop-rails
   - rubocop-rspec
+
+Style/Documentation:
+  Description: "Document classes and non-namespace modules."
+  Enabled: false
+
+Style/StringLiterals:
+  Description: "Checks if uses of quotes match the configured preference."
+  Enabled: true
+  EnforcedStyle: double_quotes
+
+Style/HashSyntax:
+  Description: "Use the old-fashioned hash rockets syntax."
+  EnforcedStyle: hash_rockets
+  Enabled: true
+
+Style/TrailingCommaInHashLiteral:
+  EnforcedStyleForMultiline: consistent_comma
+  Enabled: true
