@@ -26,7 +26,7 @@ module.exports = {
       "error",
       {
         singleQuote: false,
-        trailingComma: "all",
+        trailingComma: "es5",
       },
     ],
     "react/prop-types": [
