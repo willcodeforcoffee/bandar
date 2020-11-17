@@ -18,8 +18,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
-      - name: Set up Ruby
+      - name: Checkout Code
+        uses: actions/checkout@v2
       - name: Lint Code Base
         uses: github/super-linter@v3
         env:
