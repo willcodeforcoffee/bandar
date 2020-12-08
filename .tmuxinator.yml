@@ -44,6 +44,10 @@ on_project_stop: docker-compose down
 # attach: false
 
 windows:
-  - services: docker-compose up
-  - webpacker: bin/webpack-dev-server
-  - rails: bin/rails s --binding=0.0.0.0
+  - servers:
+      layout: main-vertical
+      panes:
+        - rails: bin/rails s --binding=0.0.0.0
+        - console: bin/rails c
+        - services: docker-compose up
+        - webpacker: bin/webpack-dev-server
