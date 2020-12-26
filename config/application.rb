@@ -16,5 +16,8 @@ module Bandar
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
     config.active_job.queue_adapter = :good_job
+
+    config.x.pushover.token = ENV['PUSHOVER_TOKEN']
+    config.x.pushover.user_key = ENV['PUSHOVER_USERKEY']
   end
 end

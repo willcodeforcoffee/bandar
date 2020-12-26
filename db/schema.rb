@@ -10,11 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_15_015545) do
+ActiveRecord::Schema.define(version: 2020_12_21_220354) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
+
+  create_table "communication_notification_pushovers", force: :cascade do |t|
+    t.string "title"
+    t.string "message", null: false
+    t.string "device"
+    t.string "status", null: false
+    t.datetime "sent_at"
+    t.integer "retries", default: 0, null: false
+    t.json "receipt"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "good_jobs", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.text "queue_name"

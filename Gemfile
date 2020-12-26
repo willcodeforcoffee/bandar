@@ -39,6 +39,7 @@ group :development, :test do
   gem "dotenv-rails"
   gem "factory_bot"
   gem "factory_bot_rails"
+  gem "pry-byebug"
   gem "pry-rails"
   gem "rspec"
   gem "rspec-rails"
