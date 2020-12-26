@@ -26,9 +26,12 @@ gem "bcrypt", "~> 3.1.7"
 # gem 'image_processing', '~> 1.2'
 
 # Reduces boot times through caching; required in config/boot.rb
+gem "aasm"
+gem 'after_commit_everywhere', '~> 0.1', '>= 0.1.5' # for AASM ActiveRecord support https://github.com/aasm/aasm#activerecord
 gem "bootsnap", ">= 1.4.2", :require => false
 gem "clockwork"
 gem "good_job"
+gem "pushover"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -36,6 +39,7 @@ group :development, :test do
   gem "dotenv-rails"
   gem "factory_bot"
   gem "factory_bot_rails"
+  gem "pry-rails"
   gem "rspec"
   gem "rspec-rails"
 end
