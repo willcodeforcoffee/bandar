@@ -62,17 +62,21 @@ Rails.application.configure do
   config.active_job.queue_adapter = GoodJob::Adapter.new(:execution_mode => :external)
 
   # https://guides.rubyonrails.org/action_mailer_basics.html#action-mailer-configuration
-  # TODO: LetterOpener by default instead
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.perform_deliveries = true # TODO
-  config.action_mailer.smtp_settings = {
-    :address => ENV['SMTP_ADDRESS'],
-    :port => 587,
-    :enable_starttls_auto => true,
-    :domain => ENV['SMTP_DOMAIN'],
-    :tls => true,
-    :authentication => :login,
-    :user_name => ENV['SMTP_USER_NAME'],
-    :password => ENV['SMTP_PASSWORD'],
-  }
+  if Rails.configuration.x.mailers.enable_smtp_sending
+    config.action_mailer.delivery_method = :smtp
+    config.action_mailer.perform_deliveries = true
+    config.action_mailer.smtp_settings = {
+      :address => ENV['SMTP_ADDRESS'],
+      :port => 587,
+      :enable_starttls_auto => true,
+      :domain => ENV['SMTP_DOMAIN'],
+      :tls => true,
+      :authentication => :login,
+      :user_name => ENV['SMTP_USER_NAME'],
+      :password => ENV['SMTP_PASSWORD'],
+    }
+  else
+    config.action_mailer.delivery_method = :letter_opener_web
+    config.action_mailer.perform_deliveries = true
+  end
 end
