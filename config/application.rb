@@ -17,7 +17,15 @@ module Bandar
     # the framework and any gems in your application.
     config.active_job.queue_adapter = :good_job
 
-    config.x.pushover.token = ENV['PUSHOVER_TOKEN']
-    config.x.pushover.user_key = ENV['PUSHOVER_USERKEY']
+    config.x.pushover.token = ENV["PUSHOVER_TOKEN"]
+    config.x.pushover.user_key = ENV["PUSHOVER_USERKEY"]
+
+    # SystemEmailer emails should only go to the sysop(s) so a default :to must be set in the :defaults
+    config.x.mailers.system_mailer = {
+      :default => {
+        :from => ENV["SYSTEM_MAILER_DEFAULT_FROM_ADDRESS"],
+        :to => ENV["SYSTEM_MAILER_DEFAULT_RECIPIENT_ADDRESS"],
+      },
+    }
   end
 end
