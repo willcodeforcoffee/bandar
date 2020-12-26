@@ -4,6 +4,6 @@ class SystemMailer < ApplicationMailer
   layout "system_mailer"
 
   def welcome_email
-    mail(:subject => 'Welcome to Bandar')
+    mail(:subject => "Welcome to Bandar")
   end
 end

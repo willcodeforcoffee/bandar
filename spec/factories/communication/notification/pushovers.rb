@@ -1,5 +1,5 @@
 FactoryBot.define do
-  factory :communication_notification_pushover, class: 'Communication::Notification::Pushover' do
+  factory :communication_notification_pushover, :class => "Communication::Notification::Pushover" do
     title { "Pushover Notification" }
     message { "This is a Pushover Notification" }
     device { "TestDevice1" }

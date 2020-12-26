@@ -27,7 +27,7 @@ gem "bcrypt", "~> 3.1.7"
 
 # Reduces boot times through caching; required in config/boot.rb
 gem "aasm"
-gem 'after_commit_everywhere', '~> 0.1', '>= 0.1.5' # for AASM ActiveRecord support https://github.com/aasm/aasm#activerecord
+gem "after_commit_everywhere", "~> 0.1", ">= 0.1.5" # for AASM ActiveRecord support https://github.com/aasm/aasm#activerecord
 gem "bootsnap", ">= 1.4.2", :require => false
 gem "clockwork"
 gem "good_job"

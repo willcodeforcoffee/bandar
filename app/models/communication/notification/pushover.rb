@@ -1,7 +1,7 @@
 class Communication::Notification::Pushover < ApplicationRecord
  include AASM
 
-  validates :message, presence: true
+  validates :message, :presence => true
 
   aasm :column => :status do
     state :ready, :initial => true
@@ -44,10 +44,10 @@ class Communication::Notification::Pushover < ApplicationRecord
   def deliver_notification
     logger.info("Delivering Pushover Notification [#{self.id}]")
     message = Pushover::Message.new({
-      token: Rails.configuration.x.pushover.token,
-      user: Rails.configuration.x.pushover.user_key,
-      title: self.title || "Bandar Notification",
-      message: self.message
+      :token => Rails.configuration.x.pushover.token,
+      :user => Rails.configuration.x.pushover.user_key,
+      :title => self.title || "Bandar Notification",
+      :message => self.message,
     })
     self.receipt = message.push
     # TODO validate response

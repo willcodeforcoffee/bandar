@@ -1,6 +1,6 @@
-require 'rails_helper'
+require "rails_helper"
 
-RSpec.describe Communication::Notification::Pushover, type: :model do
+RSpec.describe Communication::Notification::Pushover, :type => :model do
   describe "a new Pushover Notification" do
     context "should be defaulting to" do
       let(:notification) { Communication::Notification::Pushover.new }
