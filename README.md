@@ -14,7 +14,7 @@ docker build .
 
 ### Step 2. Setup the Environment variables
 
-Anything you aren't passing from the environment should be loaded into `.env.production.local`
+Anything you aren't passing from the environment should be loaded into `.env.production.local`. Most settings are documented in `.env` also.
 
 - [Pushover](https://pushover.net/) is used to send app notifications
 - SMTP is used to send email
