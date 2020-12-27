@@ -1,0 +1,6 @@
+#!/bin/bash
+print "Building the Docker Container"
+docker build .
+
+print "Starting the Bandar Application"
+docker-compose -f docker-compose.yml -f config/docker/docker-compose.yml start

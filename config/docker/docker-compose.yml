@@ -1,0 +1,48 @@
+# This is the production overrides compose file
+version: '3.8'
+services:
+  web:
+    image: bandar:latest
+    command: bin/rails server -p 3000 -b '0.0.0.0'
+    volumes:
+      - log-data:/triptych/log
+    env_file:
+      - '.env'
+      - '.env.production.local'
+    depends_on:
+      - postgres
+      - redis
+  clockwork:
+    image: bandar:latest
+    command: bin/clockwork config/clockwork.rb
+    volumes:
+      - log-data:/triptych/log
+    env_file:
+      - '.env'
+      - '.env.production.local'
+    depends_on:
+      - postgres
+      - redis
+  goodjob:
+    image: bandar:latest
+    command: bin/good_job start
+    volumes:
+      - log-data:/triptych/log
+    env_file:
+      - '.env'
+      - '.env.production.local'
+    depends_on:
+      - postgres
+      - redis
+  postgres:
+    env_file:
+      - '.env'
+      - '.env.production.local'
+  redis:
+    env_file:
+      - '.env'
+      - '.env.production.local'
+volumes:
+  postgres-data:
+  redis-data:
+  log-data:
