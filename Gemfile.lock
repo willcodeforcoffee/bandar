@@ -160,6 +160,8 @@ GEM
       gli
       oj
     rack (2.2.3)
+    rack-attack (6.3.1)
+      rack (>= 1.0, < 3)
     rack-proxy (0.6.5)
       rack
     rack-test (1.1.0)
@@ -317,6 +319,7 @@ DEPENDENCIES
   pry-rails
   puma (~> 5.0)
   pushover
+  rack-attack
   rails (~> 6.0.3, >= 6.0.3.4)
   redis (~> 4.0)
   rspec
