@@ -19,9 +19,10 @@ RUN chmod +x /wait
 RUN mkdir /bandar
 WORKDIR /bandar
 COPY Gemfile Gemfile.lock package.json yarn.lock /bandar/
-RUN bundle install \
-  && yarn install \
-  && bin/rails webpacker:compile
+RUN cd /bandar \
+  && bundle install \
+  && yarn install
 COPY . /bandar
+RUN bin/rails assets:precompile webpacker:compile
 
 EXPOSE 3000

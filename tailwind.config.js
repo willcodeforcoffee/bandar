@@ -1,7 +1,8 @@
 module.exports = {
+  purge: false,
   theme: {
     extend: {},
   },
   variants: {},
-  plugins: [require("@tailwindcss/forms"), require("@tailwindcss/typography")],
+  plugins: [require('@tailwindcss/forms'), require('@tailwindcss/typography')],
 };
