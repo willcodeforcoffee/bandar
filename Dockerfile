@@ -12,11 +12,8 @@ RUN curl -sL https://deb.nodesource.com/setup_14.x | /bin/bash - \
   && gem install rake \
   && gem install bundler
 
-## Add the wait script to the image
-ADD https://github.com/ufoscout/docker-compose-wait/releases/download/2.7.3/wait /wait
-RUN chmod +x /wait
-
 RUN mkdir /bandar
+ENV RAILS_ROOT /bandar
 WORKDIR /bandar
 COPY Gemfile Gemfile.lock package.json yarn.lock /bandar/
 RUN cd /bandar \
@@ -24,5 +21,9 @@ RUN cd /bandar \
   && yarn install
 COPY . /bandar
 RUN bin/rails assets:precompile webpacker:compile
+
+## Add the wait script to the image
+ADD https://github.com/ufoscout/docker-compose-wait/releases/download/2.7.3/wait /wait
+RUN chmod +x /wait
 
 EXPOSE 3000

@@ -4,7 +4,7 @@ A local webserver. Something I can easily run on a personal website.
 
 ## Running in Production
 
-### Step 1. Build the Docker image
+### Step 1. Build the Application Docker images
 
 First you have to build the Docker image:
 
