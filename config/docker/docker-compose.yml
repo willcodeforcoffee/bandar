@@ -4,6 +4,7 @@ services:
   web:
     image: bandar:latest
     command: sh -c "/wait && bin/rails server --port=3000 --binding='0.0.0.0' --environment=production --early-hints"
+    restart: always
     ports:
       - 3000:3000
     volumes:
@@ -17,6 +18,7 @@ services:
   clockwork:
     image: bandar:latest
     command: sh -c "/wait && bin/clockwork config/clockwork.rb"
+    restart: always
     volumes:
       - log-data:/triptych/log
     env_file:
@@ -28,6 +30,7 @@ services:
   goodjob:
     image: bandar:latest
     command: sh -c "/wait && bin/good_job start"
+    restart: always
     volumes:
       - log-data:/triptych/log
     env_file:
@@ -37,10 +40,12 @@ services:
       - postgres
       - redis
   postgres:
+    restart: always
     env_file:
       - '.env'
       - '.env.production.local'
   redis:
+    restart: always
     env_file:
       - '.env'
       - '.env.production.local'
