@@ -70,11 +70,10 @@ Rails.application.configure do
       :port => 587,
       :enable_starttls_auto => true,
       :domain => ENV["SMTP_DOMAIN"],
-      :tls => true,
-      :authentication => :login,
+      :authentication => :plain,
       :user_name => ENV["SMTP_USER_NAME"],
       :password => ENV["SMTP_PASSWORD"],
-    }
+      }
   else
     config.action_mailer.delivery_method = :letter_opener_web
     config.action_mailer.perform_deliveries = true
