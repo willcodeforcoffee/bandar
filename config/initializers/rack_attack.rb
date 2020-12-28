@@ -13,6 +13,7 @@ class Rack::Attack
       req.path.include?("wp-login") ||
       req.path.include?("wp-content") ||
       req.path.include?(".php") || # dump any php requests
+      req.path.include?("\\x") || # UNICODE exploiters
       req.path.include?(".env") # I see scrapers looking for this too
     end
   end
