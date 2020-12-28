@@ -4,6 +4,8 @@ services:
   web:
     image: bandar:latest
     command: sh -c "/wait && bin/rails server -p 3000 -b '0.0.0.0'"
+    ports:
+      - 3000:3000
     volumes:
       - log-data:/triptych/log
     env_file:
