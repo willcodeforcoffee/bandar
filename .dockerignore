@@ -1,6 +1,7 @@
 node_modules
 .devcontainer
 .vscode
-tmp
-log
 .env*
+public/assets
+public/packs
+public/packs-test

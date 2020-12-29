@@ -6,10 +6,16 @@ A local webserver. Something I can easily run on a personal website.
 
 ### Step 1. Build the Application Docker images
 
-First you have to build the Docker image:
+First you have to build the Application Docker image:
 
 ```
-docker build --tag bandar:1.0.0 --tag bandar:latest .
+docker build --tag bandar:1.1.0 --tag bandar:latest .
+```
+
+Second you have to build the Proxy Docker image
+
+```
+docker build --file config/docker/proxy/Dockerfile --tag bandar-proxy:1.1.0 --tag bandar-proxy:latest .
 ```
 
 ### Step 2. Setup the Environment variables

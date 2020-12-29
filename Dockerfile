@@ -2,7 +2,7 @@ FROM ruby:2.6.6-buster
 
 LABEL "name"="bandar" \
   "description"="Bandar: a personal website" \
-  "version"="1.0.0"
+  "version"="1.1.0"
 
 RUN curl -sL https://deb.nodesource.com/setup_14.x | /bin/bash - \
   && apt-get update -qq \
@@ -20,7 +20,7 @@ RUN cd /bandar \
   && bundle install \
   && yarn install
 COPY . /bandar
-RUN bin/rails assets:precompile webpacker:compile
+RUN bin/rails assets:clean assets:precompile
 
 ## Add the wait script to the image
 ADD https://github.com/ufoscout/docker-compose-wait/releases/download/2.7.3/wait /wait
