@@ -1,11 +1,19 @@
 import React from 'react';
+import { AppConstants } from './AppConstants';
+import { GraphQLContext } from './graphql/GraphQLProvider';
 
-function App(): JSX.Element {
+interface AppProps {
+  constants: AppConstants;
+}
+
+function App(props: AppProps): JSX.Element {
   return (
-    <div className="prose">
-      <h1>React is Working</h1>
-      <p>This means React Rails is working</p>
-    </div>
+    <GraphQLContext graphqlEndpoint={props.constants.paths.graphql}>
+      <div className="prose">
+        <h1>React is Working</h1>
+        <p>This means React Rails is working</p>
+      </div>
+    </GraphQLContext>
   );
 }
 
