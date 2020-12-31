@@ -2,10 +2,10 @@
 Rails.application.routes.draw do
   if Rails.env.development?
     mount GraphiQL::Rails::Engine, at: "/graphiql", graphql_path: "/graphql"
+    mount LetterOpenerWeb::Engine, :at => "/letter_opener"
   end
+
   post "/graphql", to: "graphql#execute"
   get "home/index"
   root :to => "home#index"
-
-  mount LetterOpenerWeb::Engine, :at => "/letter_opener" if Rails.env.development?
 end
