@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_21_220354) do
+ActiveRecord::Schema.define(version: 2020_12_31_003118) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -40,6 +40,16 @@ ActiveRecord::Schema.define(version: 2020_12_21_220354) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["queue_name", "scheduled_at"], name: "index_good_jobs_on_queue_name_and_scheduled_at", where: "(finished_at IS NULL)"
     t.index ["scheduled_at"], name: "index_good_jobs_on_scheduled_at", where: "(finished_at IS NULL)"
+  end
+
+  create_table "user_invitations", force: :cascade do |t|
+    t.string "token", limit: 30, null: false
+    t.string "email_address", limit: 255, null: false
+    t.datetime "expires_at", null: false
+    t.datetime "accepted_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["token"], name: "index_user_invitations_on_token", unique: true
   end
 
 end

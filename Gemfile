@@ -46,6 +46,7 @@ group :development, :test do
   gem "pry-rails"
   gem "rspec"
   gem "rspec-rails"
+  gem "timecop"
 end
 
 group :development do

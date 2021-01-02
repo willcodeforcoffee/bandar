@@ -28,5 +28,10 @@ module Bandar
         :to => ENV["SYSTEM_MAILER_DEFAULT_RECIPIENT_ADDRESS"],
       },
     }
+    config.x.mailers.user_mailer = {
+      :default => {
+        :from => ENV["USER_MAILER_DEFAULT_FROM_ADDRESS"],
+      },
+    }
   end
 end
