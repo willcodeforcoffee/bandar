@@ -3,11 +3,11 @@
   <head>
     <meta http-equiv="Content-Type"
     content="text/html; charset=UTF-8" />
-    <title><%= subject %></title>
+    <title><%= message.subject %></title>
     <style type="text/css"></style>
   </head>
   <body>
-    <h1><%= subject %></h1>
+    <h1><%= message.subject %></h1>
     <% unless Rails.env.production? %>
     <div style="color:red; border: black;">
       Note: non-production account notification.

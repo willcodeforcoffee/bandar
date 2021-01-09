@@ -1,5 +1,3 @@
-require "rails_helper"
-
 class UserInvitationService
   class InvitationNotValidError < StandardError
     attr_accessor :user_invitation
@@ -33,7 +31,6 @@ class UserInvitationService
   private
 
   def send_user_invitation_email(user_invitation)
-    # TODO: Move to a worker?
-    UserMailer.user_invitation(user_invitation)
+    UserMailer.user_invitation(user_invitation.id).deliver_later
   end
 end

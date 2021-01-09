@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(version: 2020_12_31_003118) do
     t.string "token", limit: 30, null: false
     t.string "email_address", limit: 255, null: false
     t.datetime "expires_at", null: false
+    t.datetime "sent_at"
     t.datetime "accepted_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

@@ -1,8 +1,8 @@
 # This is an invitation to signup to the application
 class UserInvitation < ApplicationRecord
-  validates :token, presence: true, :length => { :maximum => 30 }
-  validates :email_address, presence: true, :length => { :maximum => 255 }
-  validates :expires_at, presence: true
+  validates :token, :presence => true, :length => { :maximum => 30 }
+  validates :email_address, :presence => true, :length => { :maximum => 255 }
+  validates :expires_at, :presence => true
 
   TOKEN_LENGTH = 30
   DEFAULT_EXPIRES_AT = -> { 72.hours.from_now.utc }
@@ -15,15 +15,24 @@ class UserInvitation < ApplicationRecord
     accepted_at.present?
   end
 
+  def sent?
+    sent_at.present?
+  end
+
+  def mark_sent!
+    update(:sent_at => DateTime.now.utc)
+  end
+
   class << self
     def generate_for(email_address, expires_at = nil)
-      # TODO: Check if email exists
-      UserInvitation.new({
+      options = {
         :token => generate_token,
         :email_address => email_address,
         :expires_at => expires_at || DEFAULT_EXPIRES_AT.call,
         :accepted_at => nil,
-      })
+      }
+
+      UserInvitation.new(options)
     end
 
     def sent?(email_address)
