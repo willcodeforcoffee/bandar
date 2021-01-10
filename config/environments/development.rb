@@ -19,7 +19,7 @@ Rails.application.configure do
     config.action_controller.perform_caching = true
     config.action_controller.enable_fragment_cache_logging = true
 
-    config.cache_store = :redis_cache_store, { url: ENV['REDIS_URL'] }
+    config.cache_store = :redis_cache_store, { :url => ENV["REDIS_URL"] }
     config.public_file_server.headers = { "Cache-Control" => "public, max-age=#{2.days.to_i}" }
   else
     config.action_controller.perform_caching = false
@@ -73,7 +73,7 @@ Rails.application.configure do
       :authentication => :plain,
       :user_name => ENV["SMTP_USER_NAME"],
       :password => ENV["SMTP_PASSWORD"],
-      }
+    }
   else
     config.action_mailer.delivery_method = :letter_opener_web
     config.action_mailer.perform_deliveries = true

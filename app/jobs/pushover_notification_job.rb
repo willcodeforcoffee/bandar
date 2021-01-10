@@ -11,8 +11,10 @@ class PushoverNotificationJob < ApplicationJob
 
     begin
       pushover_notification.deliver
-    rescue => exception
-      logger.error("Failed to deliver Communication::Notification::Pushover with ID #{id}: #{exception&.message || "unknown message"}")
+    rescue StandardError => e
+      logger.error(
+        "Failed to deliver Communication::Notification::Pushover with ID #{id}: #{e&.message || 'unknown message'}",
+      )
     end
   end
 end

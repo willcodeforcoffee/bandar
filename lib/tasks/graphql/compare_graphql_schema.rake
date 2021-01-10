@@ -12,6 +12,6 @@ namespace :graphql do
     end
 
     puts "Schema changes found."
-    exit 1;
+    exit 1
   end
 end

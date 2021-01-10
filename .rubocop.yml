@@ -1,5 +1,6 @@
 AllCops:
   TargetRubyVersion: 2.6
+  NewCops: enable
 
 Rails:
   Enabled: true
@@ -7,6 +8,21 @@ Rails:
 require:
   - rubocop-rails
   - rubocop-rspec
+
+Metrics/BlockLength:
+  Enabled: true
+  Exclude:
+    - "**/*.rake"
+    - "spec/**/*.rb"
+    - "config/environments/*.rb"
+
+Metrics/MethodLength:
+  Description: >-
+    This cop checks if the length of a method exceeds some maximum value. Comment lines can optionally be ignored. The maximum allowed length is configurable.
+    You can set literals you want to fold with CountAsOne. Available are: 'array', 'hash', and 'heredoc'. Each literal will be counted as one line regardless of its actual size.
+  CountComments: false
+  Enabled: true
+  Max: 15
 
 Style/BlockComments:
   Enabled: true
@@ -16,7 +32,7 @@ Style/BlockComments:
 Style/ClassAndModuleChildren:
   Enabled: true
   Exclude:
-    - "test/**/*"
+    - "spec/**/*"
 
 Style/Documentation:
   Description: "Document classes and non-namespace modules."
@@ -41,3 +57,24 @@ Style/FrozenStringLiteralComment:
 
 Style/SymbolArray:
   Enabled: false
+
+Style/TrailingCommaInArguments:
+  Description: >-
+    This cop checks for trailing comma in argument lists. The supported styles are:
+    - consistent_comma: Requires a comma after the last argument, for all parenthesized method calls with arguments.
+    - comma: Requires a comma after the last argument, but only for parenthesized method calls where each argument is on its own line.
+    - no_comma: Requires that there is no comma after the last argument.
+  EnforcedStyleForMultiline: consistent_comma
+
+Layout/CommentIndentation:
+  Enabled: true
+  Exclude:
+    - "spec/spec_helper.rb"
+
+Rails/Output:
+  Description: >-
+    This cop checks for the use of output calls like puts and print.
+    It is disabled for Rake tasks where the Rails logger is not used.
+  Enabled: true
+  Exclude:
+    - "lib/tasks"

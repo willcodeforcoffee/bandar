@@ -1,6 +1,6 @@
-import React, { ReactNode } from 'react';
-import { ApolloProvider } from '@apollo/react-hooks';
-import { ApolloClient, InMemoryCache } from '@apollo/client';
+import React, { ReactNode } from "react";
+import { ApolloProvider } from "@apollo/react-hooks";
+import { ApolloClient, InMemoryCache } from "@apollo/client";
 
 interface GraphQLProviderProps {
   graphqlEndpoint: string;

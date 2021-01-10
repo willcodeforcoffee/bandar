@@ -55,7 +55,7 @@ Rails.application.configure do
 
   # Use Redis cache store in production.
   # https://guides.rubyonrails.org/caching_with_rails.html#activesupport-cache-rediscachestore
-  config.cache_store = :redis_cache_store, { url: ENV['REDIS_URL'] }
+  config.cache_store = :redis_cache_store, { :url => ENV["REDIS_URL"] }
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation cannot be found).

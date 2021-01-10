@@ -30,8 +30,8 @@ gem "aasm"
 gem "after_commit_everywhere", "~> 0.1", ">= 0.1.5" # for AASM ActiveRecord support https://github.com/aasm/aasm#activerecord
 gem "bootsnap", ">= 1.4.2", :require => false
 gem "clockwork"
-gem "graphql"
 gem "good_job"
+gem "graphql"
 gem "pushover"
 gem "rack-attack"
 gem "react-rails"
@@ -51,9 +51,9 @@ end
 group :development do
   gem "letter_opener_web"
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
-  gem "listen", "~> 3.2"
   gem "graphiql-rails"
   gem "graphql-schema_comparator"
+  gem "listen", "~> 3.2"
   gem "rubocop", :require => false
   gem "rubocop-rails", :require => false
   gem "rubocop-rspec", :require => false

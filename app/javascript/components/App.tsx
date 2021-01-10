@@ -1,6 +1,6 @@
-import React from 'react';
-import { AppConstants } from './AppConstants';
-import { GraphQLContext } from './graphql/GraphQLProvider';
+import React from "react";
+import { AppConstants } from "./AppConstants";
+import { GraphQLContext } from "./graphql/GraphQLProvider";
 
 interface AppProps {
   constants: AppConstants;
