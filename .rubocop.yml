@@ -24,14 +24,6 @@ Metrics/MethodLength:
   Enabled: true
   Max: 15
 
-Metrics/MethodLength:
-  Description: >-
-    This cop checks if the length of a method exceeds some maximum value. Comment lines can optionally be ignored. The maximum allowed length is configurable.
-    You can set literals you want to fold with CountAsOne. Available are: 'array', 'hash', and 'heredoc'. Each literal will be counted as one line regardless of its actual size.
-  CountComments: false
-  Enabled: true
-  Max: 15
-
 Style/BlockComments:
   Enabled: true
   Exclude:
@@ -53,7 +45,7 @@ Style/StringLiterals:
 
 Style/HashSyntax:
   Description: "Use the old-fashioned hash rockets syntax."
-  EnforcedStyle: hash_rockets
+  EnforcedStyle: no_mixed_keys
   Enabled: true
 
 Style/TrailingCommaInHashLiteral:
@@ -85,4 +77,4 @@ Rails/Output:
     It is disabled for Rake tasks where the Rails logger is not used.
   Enabled: true
   Exclude:
-    - "lib/tasks"
+    - "lib/tasks/*"

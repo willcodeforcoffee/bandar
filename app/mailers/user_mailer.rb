@@ -1,5 +1,5 @@
 class UserMailer < ApplicationMailer
-  default Rails.configuration.x.mailers.system_mailer[:default]
+  default Rails.configuration.x.mailers.user_mailer[:default]
   layout "user_mailer"
 
   def user_invitation(user_invitation_id)
