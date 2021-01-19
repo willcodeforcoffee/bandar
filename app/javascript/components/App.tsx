@@ -1,6 +1,6 @@
 import React from "react";
 import { AppConstants } from "./AppConstants";
-import { GraphQLContext } from "./graphql/GraphQLProvider";
+import { AppContext } from "./AppContext";
 
 interface AppProps {
   constants: AppConstants;
@@ -8,13 +8,13 @@ interface AppProps {
 
 function App(props: AppProps): JSX.Element {
   return (
-    <GraphQLContext graphqlEndpoint={props.constants.paths.graphql}>
+    <AppContext constants={props.constants}>
       <div className="prose">
         <h1>React is Working</h1>
         <p>This means React Rails is working</p>
       </div>
-    </GraphQLContext>
+    </AppContext>
   );
 }
 
-export { App };
+export { App, AppProps };

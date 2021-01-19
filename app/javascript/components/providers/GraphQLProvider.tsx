@@ -16,4 +16,4 @@ function GraphQLProvider(props: GraphQLProviderProps): JSX.Element {
   return <ApolloProvider client={client}>{props.children}</ApolloProvider>;
 }
 
-export { GraphQLProvider as GraphQLContext };
+export { GraphQLProvider };
