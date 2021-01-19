@@ -71,7 +71,7 @@ export function NavBar(): JSX.Element {
   return (
     <div id="Router" className="sm:flex sm:justify-between bg-gray-900">
       <div className="flex items-center justify-between px-4 py-3">
-        <div className="text-white font-bold">Toast</div>
+        <div className="text-white font-bold">Bandar</div>
         <div className="sm:hidden">
           <button
             type="button"
