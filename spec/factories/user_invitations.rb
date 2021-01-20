@@ -4,9 +4,14 @@ FactoryBot.define do
     email_address { "test@example.com" }
     expires_at { UserInvitation::DEFAULT_EXPIRES_AT.call }
     accepted_at { nil }
+    sent_at { nil }
 
     trait :accepted do
-      accepted_at { DateTime.now.utc }
+      accepted_at { 1.second.ago }
+    end
+
+    trait :sent do
+      sent_at { 1.second.ago }
     end
 
     trait :expired do

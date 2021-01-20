@@ -1,6 +1,7 @@
 class UserMailer < ApplicationMailer
   default Rails.configuration.x.mailers.user_mailer[:default]
   layout "user_mailer"
+  helper ReactRoutesHelper
 
   def user_invitation(user_invitation_id)
     @user_invitation = UserInvitation.find_by(:id => user_invitation_id)
@@ -11,11 +12,11 @@ class UserMailer < ApplicationMailer
 
     logger.debug("Sending Invitation [#{user_invitation_id}] to [#{@user_invitation.email_address}]")
 
+    @user_invitation.mark_sent!
+
     mail(
       :subject => "Invitation to join Bandar",
       :to => @user_invitation.email_address,
     )
-
-    @user_invitation.mark_sent!
   end
 end

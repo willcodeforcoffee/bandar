@@ -46,4 +46,16 @@ Rails.application.configure do
   # config.action_view.raise_on_missing_translations = true
 
   config.active_job.queue_adapter = GoodJob::Adapter.new(:execution_mode => :inline)
+  config.action_mailer.default_url_options = { host: "example.com" }
+  config.x.mailers.system_mailer = {
+    :default => {
+      :from => "system_mailer@example.com",
+      :to => "admin@example.com",
+    },
+  }
+  config.x.mailers.user_mailer = {
+    :default => {
+      :from => "user_mailer@example.com",
+    },
+  }
 end

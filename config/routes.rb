@@ -8,4 +8,8 @@ Rails.application.routes.draw do
   post "/graphql", :to => "graphql#execute"
   get "home/index"
   root :to => "home#index"
+
+  # React routes - So router routes will go to the right React page component
+  get "/test", to: "home#index"
+  get "/auth/accept", to: "home#index"
 end
