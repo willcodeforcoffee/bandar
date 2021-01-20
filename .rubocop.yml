@@ -14,7 +14,8 @@ Metrics/BlockLength:
   Exclude:
     - "**/*.rake"
     - "spec/**/*.rb"
-    - "config/environments/*.rb"
+    - "config/environments/*"
+    - "config/application.rb"
 
 Metrics/MethodLength:
   Description: >-
