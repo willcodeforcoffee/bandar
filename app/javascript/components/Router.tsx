@@ -3,10 +3,15 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { NavBar } from "./navigation/NavBar";
 import { Home } from "./pages/Home";
 import { Test } from "./pages/Test";
+import { AcceptInvitation } from "./pages/Authentication/AcceptInvitation";
+import { NotFound404 } from "./pages/NotFound404";
 
 export const Routes = {
   Home: "/",
   Test: "/test",
+  Auth: {
+    Accept: "/auth/accept",
+  },
 };
 
 export function Router(): JSX.Element {
@@ -16,6 +21,10 @@ export function Router(): JSX.Element {
       <Switch>
         <Route exact path="/" component={Home} />
         <Route path="/test" component={Test} />
+        <Route path="/auth/accept" component={AcceptInvitation} />
+        <Route path="*">
+          <NotFound404 />
+        </Route>
       </Switch>
     </BrowserRouter>
   );
