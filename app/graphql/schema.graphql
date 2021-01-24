@@ -1,3 +1,8 @@
+"""
+An ISO 8601-encoded datetime
+"""
+scalar ISO8601DateTime
+
 type Mutation {
   """
   An example field added by the generator
@@ -10,4 +15,23 @@ type Query {
   An example field added by the generator
   """
   testField: String!
+
+  """
+  Find a UserInvitation by token
+  """
+  userInvitation(token: String!): UserInvitation
+}
+
+type UserInvitation {
+  acceptedAt: ISO8601DateTime
+  createdAt: ISO8601DateTime!
+  emailAddress: String!
+  expiresAt: ISO8601DateTime!
+  id: ID!
+  isAccepted: Boolean
+  isExpired: Boolean
+  isSent: Boolean
+  sentAt: ISO8601DateTime
+  token: String!
+  updatedAt: ISO8601DateTime!
 }
