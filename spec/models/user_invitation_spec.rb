@@ -44,7 +44,7 @@ RSpec.describe UserInvitation, :type => :model do
 
     context "when no invitation was sent" do
       it "is false" do
-        expect(described_class.new.sent?()).to be(false)
+        expect(described_class.new.sent?).to be(false)
       end
     end
 
