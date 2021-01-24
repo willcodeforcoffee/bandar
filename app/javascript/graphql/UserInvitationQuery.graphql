@@ -1,0 +1,8 @@
+query userInvitation($token: String!) {
+  userInvitation(token: $token) {
+    emailAddress
+    isAccepted
+    isSent
+    isExpired
+  }
+}
