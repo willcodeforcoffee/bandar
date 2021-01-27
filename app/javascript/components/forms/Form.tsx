@@ -1,16 +1,20 @@
-import React, { ReactNode } from "react";
+import React, { FormEvent, ReactNode } from "react";
+
+export type FormSubmitEvent = FormEvent<HTMLFormElement>;
 
 interface FormProps {
-  legend?: string;
+  name: string;
+  title?: string;
+  onSubmit: (event: FormSubmitEvent) => void;
   children: ReactNode[];
 }
 
 function Form(props: FormProps): JSX.Element {
   const childControls: ReactNode[] = [];
-  if (props.legend) {
+  if (props.title) {
     childControls.unshift(
       <legend key="legend" className="text-lg font-bold block pt-1">
-        {props.legend}
+        {props.title}
       </legend>
     );
   }
@@ -23,7 +27,11 @@ function Form(props: FormProps): JSX.Element {
     childControls.push(props.children);
   }
 
-  return <form className="grid grid-cols-1 gap-3 pt-6">{childControls}</form>;
+  return (
+    <form onSubmit={props.onSubmit} name={props.name} className="grid grid-cols-1 gap-3 pt-6">
+      {childControls}
+    </form>
+  );
 }
 
 export { Form };
