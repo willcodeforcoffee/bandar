@@ -47,7 +47,8 @@ windows:
   - servers:
       layout: main-vertical
       panes:
-        - rails: bin/rails s --binding=0.0.0.0
         - console: bin/rails c
+        - rails: bin/rails s --binding=0.0.0.0
         - services: docker-compose up
         - webpacker: bin/webpack-dev-server
+        - goodjob: bin/good_job
