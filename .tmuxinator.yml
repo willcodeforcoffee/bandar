@@ -48,7 +48,7 @@ windows:
       layout: main-vertical
       panes:
         - console: bin/rails c
-        - rails: bin/rails s --binding=0.0.0.0
+        - rails: bin/rails s --binding=0.0.0.0 --port=4040
         - services: docker-compose up
         - webpacker: bin/webpack-dev-server
         - goodjob: bin/good_job
