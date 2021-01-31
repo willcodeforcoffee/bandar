@@ -20,6 +20,8 @@ module Bandar
     config.x.pushover.token = ENV["PUSHOVER_TOKEN"]
     config.x.pushover.user_key = ENV["PUSHOVER_USERKEY"]
 
+    config.action_mailer.default_url_options = { host: ENV["HOST_NAME"]&.downcase || "bandar.blog" }
+
     # SystemEmailer emails should only go to the sysop(s) so a default :to must be set in the :defaults
     config.x.mailers.enable_smtp_sending = Rails.env.production? || ENV["ENABLE_SMTP_SENDING"]&.downcase == "true"
     config.x.mailers.system_mailer = {

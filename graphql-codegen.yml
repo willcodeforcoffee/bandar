@@ -1,17 +1,17 @@
 overwrite: true
-schema: 'app/graphql/schema.graphql'
-documents: 'app/javascript/graphql/**/*.graphql'
+schema: "app/graphql/schema.graphql"
+documents: "app/javascript/graphql/**/*.graphql"
 generates:
-  app/javascript/components/graphql/BandarSchemaGenerated.d.ts:
+  app/javascript/components/graphql/BandarSchemaGenerated.ts:
     plugins:
       - add:
-          content: '/* eslint-disable */'
-      - 'typescript'
-      - 'typescript-operations'
-      - 'typescript-react-apollo'
-      - 'typescript-graphql-files-modules'
-      - 'typescript-document-nodes'
-      - 'fragment-matcher'
+          content:
+            - "/* eslint-disable */"
+            - "/* REGENERATE THIS FILE BY RUNNING > bin/rails graphql:create_graphql_schema && yarn run graphql:updateTypes */"
+      - "typescript"
+      - "typescript-operations"
+      - "typescript-react-apollo"
+      - "fragment-matcher"
   ./graphql.schema.json:
     plugins:
-      - 'introspection'
+      - "introspection"
