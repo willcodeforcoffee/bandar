@@ -9,9 +9,11 @@ interface AppProps {
 
 function App(props: AppProps): JSX.Element {
   return (
-    <AppContext constants={props.constants}>
-      <Router />
-    </AppContext>
+    <div id="App" className="container w-screen">
+      <AppContext constants={props.constants}>
+        <Router />
+      </AppContext>
+    </div>
   );
 }
 

@@ -3,7 +3,7 @@ import * as React from "react";
 interface ButtonProps {
   label: string;
   type?: "button" | "submit" | "reset";
-  onClick: (event: ClickEvent) => void;
+  onClick?: (event: ClickEvent) => void;
 }
 
 export type ClickEvent = MouseEvent;

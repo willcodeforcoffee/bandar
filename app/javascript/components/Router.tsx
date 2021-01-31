@@ -17,13 +17,15 @@ export function Router(): JSX.Element {
   return (
     <BrowserRouter>
       <NavBar></NavBar>
-      <Switch>
-        <Route exact path="/" component={Home} />
-        <Route path="/test" component={Test} />
-        <Route path="*">
-          <NotFound404 />
-        </Route>
-      </Switch>
+      <div className="p-1">
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route path="/test" component={Test} />
+          <Route path="*">
+            <NotFound404 />
+          </Route>
+        </Switch>
+      </div>
     </BrowserRouter>
   );
 }

@@ -6,12 +6,12 @@ import {
   InputFormControlAbstraction,
 } from "./InputFormControlAbstraction";
 
-interface EmailAddressControlProps extends FormControlWrapperProps, InputFormControlAbstractionProps {
+interface InputEmailAddressProps extends FormControlWrapperProps, InputFormControlAbstractionProps {
   initialValue?: string;
 }
 
-function EmailAddressControl(props: EmailAddressControlProps): JSX.Element {
-  console.log("EmailAddressControl", props);
+function InputEmailAddress(props: InputEmailAddressProps): JSX.Element {
+  console.log("InputEmailAddress", props);
   return (
     <FormControlWrapper labelText={props.labelText}>
       <InputFormControlAbstraction
@@ -23,4 +23,4 @@ function EmailAddressControl(props: EmailAddressControlProps): JSX.Element {
   );
 }
 
-export { EmailAddressControl };
+export { InputEmailAddress };

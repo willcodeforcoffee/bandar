@@ -6,11 +6,11 @@ import {
   InputFormControlAbstraction,
 } from "./InputFormControlAbstraction";
 
-interface PasswordInputControlProps extends FormControlWrapperProps, InputFormControlAbstractionProps {
+interface InputPasswordControlProps extends FormControlWrapperProps, InputFormControlAbstractionProps {
   initialValue?: string;
 }
 
-function PasswordInputControl(props: PasswordInputControlProps): JSX.Element {
+function InputPasswordControl(props: InputPasswordControlProps): JSX.Element {
   return (
     <FormControlWrapper labelText={props.labelText}>
       <InputFormControlAbstraction
@@ -22,4 +22,4 @@ function PasswordInputControl(props: PasswordInputControlProps): JSX.Element {
   );
 }
 
-export { PasswordInputControl };
+export { InputPasswordControl };

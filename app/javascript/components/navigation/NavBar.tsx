@@ -1,8 +1,8 @@
 import React, { useState, ReactNode } from "react";
-import { useAuth } from "../providers/AuthProvider.tsx";
-import { NavBarExternalLink, NavBarExternalLinkProps } from "./NavBarExternalLink";
-import { NavBarLink } from "../navigation/NavBarLink";
-import { Routes } from "../Router";
+import { useAuth } from "components/providers/AuthProvider";
+import { NavBarExternalLink } from "./NavBarExternalLink";
+import { NavBarLink } from "./NavBarLink";
+import { Routes } from "components/Router";
 
 export function NavBar(): JSX.Element {
   const [isOpen, setIsOpen] = useState(false);

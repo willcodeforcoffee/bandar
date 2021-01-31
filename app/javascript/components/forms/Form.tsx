@@ -1,13 +1,13 @@
 import React, { FormEvent, ReactNode } from "react";
 
-export type FormSubmitEvent = FormEvent<HTMLFormElement>;
-
 interface FormProps {
   name: string;
   title?: string;
-  onSubmit: (event: FormSubmitEvent) => void;
-  children: ReactNode[];
+  onSubmit?: (event: FormEvent<HTMLFormElement>) => void;
+  children?: ReactNode | ReactNode[];
 }
+
+const FORM_CLASSNAMES = ["mb-0", "box-border"].join(" ");
 
 function Form(props: FormProps): JSX.Element {
   const childControls: ReactNode[] = [];
@@ -27,8 +27,14 @@ function Form(props: FormProps): JSX.Element {
     childControls.push(props.children);
   }
 
+  const internalOnSubmit = (event: FormEvent<HTMLFormElement>) => {
+    if (props.onSubmit) {
+      props.onSubmit(event);
+    }
+  };
+
   return (
-    <form onSubmit={props.onSubmit} name={props.name} className="grid grid-cols-1 gap-3 pt-6">
+    <form onSubmit={internalOnSubmit} name={props.name} className={FORM_CLASSNAMES}>
       {childControls}
     </form>
   );
