@@ -1,4 +1,5 @@
 export interface AppPaths {
+  env: string;
   graphql: string;
 }
 

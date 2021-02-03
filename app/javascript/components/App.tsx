@@ -1,6 +1,7 @@
 import React from "react";
 import { AppConstants } from "./AppConstants";
-import { GraphQLContext } from "./graphql/GraphQLProvider";
+import { AppContext } from "./AppContext";
+import { Router } from "./Router";
 
 interface AppProps {
   constants: AppConstants;
@@ -8,13 +9,12 @@ interface AppProps {
 
 function App(props: AppProps): JSX.Element {
   return (
-    <GraphQLContext graphqlEndpoint={props.constants.paths.graphql}>
-      <div className="prose">
-        <h1>React is Working</h1>
-        <p>This means React Rails is working</p>
-      </div>
-    </GraphQLContext>
+    <div id="App" className="container w-screen">
+      <AppContext constants={props.constants}>
+        <Router />
+      </AppContext>
+    </div>
   );
 }
 
-export { App };
+export { App, AppProps };
