@@ -1,4 +1,5 @@
 import * as React from "react";
+import { FormRow } from "./FormRow";
 
 interface FormControlWrapperProps {
   labelText: string;
@@ -10,10 +11,12 @@ interface FormControlWrapperPropsImpl extends FormControlWrapperProps {
 
 function FormControlWrapper(props: FormControlWrapperPropsImpl): JSX.Element {
   return (
-    <label className="block pt-1">
-      <span>{props.labelText}:</span>
-      {props.children}
-    </label>
+    <FormRow>
+      <label>
+        <span>{props.labelText}:</span>
+        {props.children}
+      </label>
+    </FormRow>
   );
 }
 

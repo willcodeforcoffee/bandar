@@ -10,7 +10,7 @@ function ViewportWidthDebugger(): JSX.Element {
 function TailwindBreakpointDebugger(): JSX.Element {
   return (
     <>
-      <p className="block sm:hidden">Too small</p>
+      <p className="block sm:hidden">&lt;sm</p>
       <p className="hidden sm:block md:hidden">sm</p>
       <p className="hidden md:block lg:hidden">md</p>
       <p className="hidden lg:block xl:hidden">lg</p>

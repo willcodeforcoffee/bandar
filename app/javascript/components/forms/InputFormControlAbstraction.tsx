@@ -38,7 +38,7 @@ function InputFormControlAbstraction(props: InputFormControlAbstractionPropsImpl
 
   return (
     <input
-      className="mt-1 block w-full"
+      className="mt-1 block w-full rounded"
       type={props.inputType}
       placeholder={props.placeholder}
       value={props.initialValue}

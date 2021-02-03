@@ -6,11 +6,11 @@ import {
   InputFormControlAbstraction,
 } from "./InputFormControlAbstraction";
 
-interface TextInputControlProps extends FormControlWrapperProps, InputFormControlAbstractionProps {
+interface InputTextControlProps extends FormControlWrapperProps, InputFormControlAbstractionProps {
   initialValue?: string;
 }
 
-function TextInputControl(props: TextInputControlProps): JSX.Element {
+function InputTextControl(props: InputTextControlProps): JSX.Element {
   return (
     <FormControlWrapper labelText={props.labelText}>
       <InputFormControlAbstraction
@@ -22,4 +22,4 @@ function TextInputControl(props: TextInputControlProps): JSX.Element {
   );
 }
 
-export { TextInputControl };
+export { InputTextControl };

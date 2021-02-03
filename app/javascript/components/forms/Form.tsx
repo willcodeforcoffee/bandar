@@ -7,7 +7,16 @@ interface FormProps {
   children?: ReactNode | ReactNode[];
 }
 
-const FORM_CLASSNAMES = ["mb-0", "box-border"].join(" ");
+const FORM_CLASSNAMES = [
+  "mb-0",
+  "p-1",
+  "bg-gray-100",
+  "box-border",
+  "border",
+  "rounded",
+  "border-gray-500",
+  "shadow-sm",
+].join(" ");
 
 function Form(props: FormProps): JSX.Element {
   const childControls: ReactNode[] = [];
