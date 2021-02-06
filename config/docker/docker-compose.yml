@@ -1,11 +1,11 @@
 # This is the production overrides compose file
-version: '3.8'
+version: "3.8"
 services:
   proxy:
     image: bandar-proxy:latest
     command: sh -c "/wait && nginx"
     environment:
-      WAIT_HOSTS: web:3000
+      WAIT_HOSTS: web:4040
       WAIT_BEFORE_HOSTS: 15 # Wait before checking for web to be started
       WAIT_HOSTS_TIMEOUT: 150 # Give 2.5min to run for migrations and asset compilation
       WAIT_SLEEP_INTERVAL: 10
@@ -24,13 +24,13 @@ services:
       WAIT_HOSTS_TIMEOUT: 60
     restart: always
     ports:
-      - 3000:3000
+      - 4040:4040
     volumes:
       - log-data:/bandar/log
       - webassets-data:/var/assets:rw
     env_file:
-      - '.env'
-      - '.env.production.local'
+      - ".env"
+      - ".env.production.local"
     depends_on:
       - postgres
       - redis
@@ -44,8 +44,8 @@ services:
     volumes:
       - log-data:/bandar/log
     env_file:
-      - '.env'
-      - '.env.production.local'
+      - ".env"
+      - ".env.production.local"
     depends_on:
       - postgres
       - redis
@@ -59,21 +59,21 @@ services:
     volumes:
       - log-data:/bandar/log
     env_file:
-      - '.env'
-      - '.env.production.local'
+      - ".env"
+      - ".env.production.local"
     depends_on:
       - postgres
       - redis
   postgres:
     restart: always
     env_file:
-      - '.env'
-      - '.env.production.local'
+      - ".env"
+      - ".env.production.local"
   redis:
     restart: always
     env_file:
-      - '.env'
-      - '.env.production.local'
+      - ".env"
+      - ".env.production.local"
 volumes:
   postgres-data:
   redis-data:
