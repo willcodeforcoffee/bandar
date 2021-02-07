@@ -9,12 +9,20 @@ require:
   - rubocop-rails
   - rubocop-rspec
 
+Metrics/AbcSize:
+  Enabled: true
+  Exclude:
+    - "**/*.rake"
+    - "db/**/*"
+    - "spec/**/*.rb"
+
 Metrics/BlockLength:
   Enabled: true
   Exclude:
     - "**/*.rake"
-    - "spec/**/*.rb"
+    - "db/**/*"
     - "config/environments/*.rb"
+    - "spec/**/*.rb"
 
 Metrics/MethodLength:
   Description: >-
@@ -23,6 +31,10 @@ Metrics/MethodLength:
   CountComments: false
   Enabled: true
   Max: 15
+  Exclude:
+    - "**/*.rake"
+    - "db/**/*"
+    - "spec/**/*.rb"
 
 Style/BlockComments:
   Enabled: true
@@ -33,6 +45,7 @@ Style/ClassAndModuleChildren:
   Enabled: true
   Exclude:
     - "spec/**/*"
+    - "app/controllers/users/*_controller.rb"
 
 Style/Documentation:
   Description: "Document classes and non-namespace modules."
@@ -70,6 +83,11 @@ Layout/CommentIndentation:
   Enabled: true
   Exclude:
     - "spec/spec_helper.rb"
+
+Layout/LineLength:
+  Enabled: true
+  Exclude:
+    - "config/initializers/devise.rb"
 
 Rails/Output:
   Description: >-

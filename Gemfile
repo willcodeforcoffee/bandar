@@ -30,9 +30,10 @@ gem "aasm"
 gem "after_commit_everywhere", "~> 0.1", ">= 0.1.5" # for AASM ActiveRecord support https://github.com/aasm/aasm#activerecord
 gem "bootsnap", ">= 1.4.2", :require => false
 gem "clockwork"
-gem 'devise'
+gem "devise"
 gem "good_job"
 gem "graphql"
+gem "omniauth"
 gem "pushover"
 gem "rack-attack"
 gem "react-rails"
