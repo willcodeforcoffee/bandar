@@ -4,6 +4,7 @@ class GraphqlController < ApplicationController
   # but you'll have to authenticate your user separately
   # protect_from_forgery with: :null_session
   skip_before_action :verify_authenticity_token
+  before_action :doorkeeper_authorize!
 
   def execute
     variables = prepare_variables(params[:variables])
@@ -12,6 +13,7 @@ class GraphqlController < ApplicationController
     context = {
       # Query context goes here, for example:
       # current_user: current_user,
+      resource_owner: current_resource_owner,
     }
     result = BandarSchema.execute(query, :variables => variables, :context => context,
                                          :operation_name => operation_name,)
@@ -52,5 +54,10 @@ class GraphqlController < ApplicationController
 
     render :json => { :errors => [{ :message => error.message, :backtrace => error.backtrace }], :data => {} },
            :status => :internal_server_error
+  end
+
+  # Find the user that owns the access token
+  def current_resource_owner
+    User.find_by(id: doorkeeper_token.resource_owner_id) if doorkeeper_token
   end
 end

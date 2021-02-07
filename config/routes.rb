@@ -1,5 +1,7 @@
 # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 Rails.application.routes.draw do
+  # https://doorkeeper.gitbook.io/guides/ruby-on-rails/routes
+  use_doorkeeper
   # https://www.rubydoc.info/github/heartcombo/devise/master/ActionDispatch/Routing/Mapper%3Adevise_for
   devise_for :users, :controllers => {
     :sessions => "users/sessions",

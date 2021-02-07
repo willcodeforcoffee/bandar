@@ -31,6 +31,7 @@ gem "after_commit_everywhere", "~> 0.1", ">= 0.1.5" # for AASM ActiveRecord supp
 gem "bootsnap", ">= 1.4.2", :require => false
 gem "clockwork"
 gem "devise"
+gem "doorkeeper"
 gem "good_job"
 gem "graphql"
 gem "omniauth"
