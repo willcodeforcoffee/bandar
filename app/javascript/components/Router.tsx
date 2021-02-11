@@ -4,6 +4,7 @@ import { NavBar } from "./navigation/NavBar";
 import { Home } from "./pages/Home";
 import { Test } from "./pages/Test";
 import { NotFound404 } from "./pages/NotFound404";
+import { AppPaths } from "./AppConstants";
 
 export const Routes = {
   Home: "/",
@@ -13,10 +14,14 @@ export const Routes = {
   },
 };
 
-export function Router(): JSX.Element {
+interface RouterProps {
+  paths: AppPaths;
+}
+
+export function Router(props: RouterProps): JSX.Element {
   return (
     <BrowserRouter>
-      <NavBar></NavBar>
+      <NavBar paths={props.paths}></NavBar>
       <div className="p-1">
         <Switch>
           <Route exact path="/" component={Home} />

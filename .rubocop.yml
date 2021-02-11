@@ -11,8 +11,6 @@ require:
 
 Metrics/AbcSize:
   Enabled: true
-  Enabled: true
-  Exclude:
   Exclude:
     - "**/*.rake"
     - "db/**/*"
@@ -33,6 +31,8 @@ Metrics/MethodLength:
   CountComments: false
   Enabled: true
   Max: 15
+  Exclude:
+    - "db/**/*"
 
 Style/BlockComments:
   Enabled: true
@@ -43,7 +43,7 @@ Style/ClassAndModuleChildren:
   Enabled: true
   Exclude:
     - "spec/**/*"
-    - "app/controllers/users/*_controller.rb"
+    - "app/controllers/user_credentials/*_controller.rb"
 
 Style/Documentation:
   Description: "Document classes and non-namespace modules."
@@ -82,6 +82,11 @@ Layout/CommentIndentation:
   Exclude:
     - "spec/spec_helper.rb"
 
+Layout/LineLength:
+  Enabled: true
+  Exclude:
+    - "config/initializers/devise.rb"
+
 Rails/Output:
   Description: >-
     This cop checks for the use of output calls like puts and print.
@@ -89,3 +94,8 @@ Rails/Output:
   Enabled: true
   Exclude:
     - "lib/tasks/*"
+
+RSpec/FilePath:
+  Enabled: true
+  Exclude:
+    - "spec/models/user_credential_spec.rb"

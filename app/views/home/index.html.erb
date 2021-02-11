@@ -1,3 +1,12 @@
 <div id="main">
-<%= react_component("App.App", { :constants => { :env => Rails.env, :paths => { graphql: graphql_path } }}) %>
+<%= react_component("App.App", {
+  :constants => {
+    :env => Rails.env,
+    :paths => {
+      graphql: graphql_path,
+      sign_in: new_user_credential_session_path,
+      sign_out: destroy_user_credential_session_path,
+    }
+  }
+}) %>
 </div>

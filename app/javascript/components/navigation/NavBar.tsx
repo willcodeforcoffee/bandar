@@ -3,8 +3,13 @@ import { useAuth } from "components/providers/AuthProvider";
 import { NavBarExternalLink } from "./NavBarExternalLink";
 import { NavBarLink } from "./NavBarLink";
 import { Routes } from "components/Router";
+import { AppPaths } from "components/AppConstants";
 
-export function NavBar(): JSX.Element {
+interface NavBarProps {
+  paths: AppPaths;
+}
+
+export function NavBar(props: NavBarProps): JSX.Element {
   const [isOpen, setIsOpen] = useState(false);
   const { isAuthenticated, user } = useAuth();
   console.log("[NavBar]", isAuthenticated, user);
@@ -37,7 +42,7 @@ export function NavBar(): JSX.Element {
 
   function generateLogoutButton(): ReactNode {
     return (
-      <NavBarExternalLink name="Logout" href="/auth/destroy/">
+      <NavBarExternalLink name="Logout" href={props.paths.sign_out}>
         <span className="inline-block mr-2">{user.name}</span>
         <img alt="Avatar Image" src={user.picture} className="inline-block h-6 rounded-full" />
       </NavBarExternalLink>
@@ -55,7 +60,7 @@ export function NavBar(): JSX.Element {
   const authenticationButton = isAuthenticated ? (
     generateLogoutButton()
   ) : (
-    <NavBarExternalLink name="Login" href="/auth/google/" />
+    <NavBarExternalLink name="Login" href={props.paths.sign_in} />
   );
 
   const navBar = (
