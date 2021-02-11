@@ -16,4 +16,13 @@ class User < ApplicationRecord
            class_name: "Doorkeeper::AccessToken",
            foreign_key: :resource_owner_id,
            dependent: :delete_all # or :destroy if you need callbacks
+
+  validates :email, format: URI::MailTo::EMAIL_REGEXP
+
+  # the authenticate method from Devise documentation
+  # https://github.com/heartcombo/devise/wiki/How-To:-Find-a-user-when-you-have-their-credentials
+  def self.authenticate(email, password)
+    user = User.find_for_authentication(email: email)
+    user&.valid_password?(password) ? user : nil
+  end
 end
