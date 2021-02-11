@@ -9,12 +9,22 @@ require:
   - rubocop-rails
   - rubocop-rspec
 
+Metrics/AbcSize:
+  Enabled: true
+  Enabled: true
+  Exclude:
+  Exclude:
+    - "**/*.rake"
+    - "db/**/*"
+    - "spec/**/*.rb"
+
 Metrics/BlockLength:
   Enabled: true
   Exclude:
     - "**/*.rake"
-    - "spec/**/*.rb"
+    - "db/**/*"
     - "config/environments/*.rb"
+    - "spec/**/*.rb"
 
 Metrics/MethodLength:
   Description: >-
@@ -33,6 +43,7 @@ Style/ClassAndModuleChildren:
   Enabled: true
   Exclude:
     - "spec/**/*"
+    - "app/controllers/users/*_controller.rb"
 
 Style/Documentation:
   Description: "Document classes and non-namespace modules."
