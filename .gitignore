@@ -39,3 +39,8 @@ yarn-debug.log*
 .env
 .env.local
 .env.*.local
+
+# Keep Seeds out of source control but keep an example
+db/seeds/*.csv
+!db/seeds/.keep
+!db/seeds/*.example.csv
