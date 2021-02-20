@@ -49,6 +49,7 @@ group :development, :test do
   gem "pry-rails"
   gem "rspec"
   gem "rspec-rails"
+  gem "solargraph"
   gem "timecop"
 end
 
