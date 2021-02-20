@@ -11,7 +11,7 @@ function App(props: AppProps): JSX.Element {
   return (
     <div id="App" className="container w-screen">
       <AppContext constants={props.constants}>
-        <Router paths={props.constants.paths} />
+        <Router authDetails={props.constants.authDetails} paths={props.constants.paths} />
       </AppContext>
     </div>
   );

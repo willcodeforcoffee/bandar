@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { ReactNode } from "react";
 
 type ButtonPurpose = undefined | "primary" | "success" | "danger" | "info" | "link";
 
@@ -29,6 +29,21 @@ function purposeToColour(purpose: ButtonPurpose): string {
   }
 }
 
+interface HtmlButtonProps {
+  buttonType: "button" | "submit" | "reset";
+  classNames: string[];
+  children: ReactNode;
+  onClick?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
+}
+
+function HtmlButton(props: HtmlButtonProps) {
+  return (
+    <button type={props.buttonType} className={props.classNames.join(" ")} onClick={props.onClick}>
+      {props.children}
+    </button>
+  );
+}
+
 function Button(props: ButtonProps): JSX.Element {
   const classNames = ["px-2", "py-3", "rounded", "text-white"];
   classNames.push(purposeToColour(props.purpose));
@@ -42,9 +57,9 @@ function Button(props: ButtonProps): JSX.Element {
   const buttonType = null == props.type ? "button" : props.type;
 
   return (
-    <button type={buttonType} className={classNames.join(" ")} onClick={handleClick}>
+    <HtmlButton buttonType={buttonType} classNames={classNames} onClick={handleClick}>
       {props.label}
-    </button>
+    </HtmlButton>
   );
 }
 

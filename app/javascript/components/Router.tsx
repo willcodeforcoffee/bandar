@@ -4,28 +4,31 @@ import { NavBar } from "./navigation/NavBar";
 import { Home } from "./pages/Home";
 import { Test } from "./pages/Test";
 import { NotFound404 } from "./pages/NotFound404";
-import { AppPaths } from "./AppConstants";
+import { AppPaths, AuthDetails } from "./AppConstants";
+import { SignIn } from "./pages/user_credentials/SignIn";
 
 export const Routes = {
   Home: "/",
   Test: "/test",
-  Auth: {
-    Accept: "/auth/accept",
+  UserCredentials: {
+    SignIn: "/user_credentials/sign_in",
   },
 };
 
 interface RouterProps {
+  authDetails: AuthDetails;
   paths: AppPaths;
 }
 
 export function Router(props: RouterProps): JSX.Element {
   return (
     <BrowserRouter>
-      <NavBar paths={props.paths}></NavBar>
+      <NavBar {...props}></NavBar>
       <div className="p-1">
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route path="/test" component={Test} />
+          <Route path={Routes.Test} component={Test} />
+          <Route path={Routes.UserCredentials.SignIn} component={SignIn} />
           <Route path="*">
             <NotFound404 />
           </Route>

@@ -1,18 +1,17 @@
 import React, { useState, ReactNode } from "react";
-import { useAuth } from "components/providers/AuthProvider";
 import { NavBarExternalLink } from "./NavBarExternalLink";
 import { NavBarLink } from "./NavBarLink";
 import { Routes } from "components/Router";
-import { AppPaths } from "components/AppConstants";
+import { AppPaths, AuthDetails } from "components/AppConstants";
 
 interface NavBarProps {
+  authDetails: AuthDetails;
   paths: AppPaths;
 }
 
 export function NavBar(props: NavBarProps): JSX.Element {
   const [isOpen, setIsOpen] = useState(false);
-  const { isAuthenticated, user } = useAuth();
-  console.log("[NavBar]", isAuthenticated, user);
+  console.log("[NavBar]", props);
 
   function toggleIsOpen() {
     setIsOpen(!isOpen);
@@ -42,10 +41,15 @@ export function NavBar(props: NavBarProps): JSX.Element {
 
   function generateLogoutButton(): ReactNode {
     return (
-      <NavBarExternalLink name="Logout" href={props.paths.sign_out}>
-        <span className="inline-block mr-2">{user.name}</span>
-        <img alt="Avatar Image" src={user.picture} className="inline-block h-6 rounded-full" />
-      </NavBarExternalLink>
+      <form method="DELETE" action={props.paths.signOut}>
+        <button
+          type="submit"
+          name="Logout"
+          className="block sm:inline-block px-2 py-1 mt-1 text-white rounded-md hover:bg-gray-800"
+        >
+          Logout
+        </button>
+      </form>
     );
   }
 
@@ -57,10 +61,10 @@ export function NavBar(props: NavBarProps): JSX.Element {
     toolbarClasses.push("hidden");
   }
 
-  const authenticationButton = isAuthenticated ? (
+  const authenticationButton = props.authDetails.isSignedIn ? (
     generateLogoutButton()
   ) : (
-    <NavBarExternalLink name="Login" href={props.paths.sign_in} />
+    <NavBarExternalLink name="Login" href={props.paths.signIn} />
   );
 
   const navBar = (
