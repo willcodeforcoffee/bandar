@@ -28,6 +28,8 @@ if File.exist?("db/seeds/user_credentials.csv")
       next
     end
 
+    user_credential.skip_confirmation!
+
     puts "Seeding UserCredential [#{user_credential.email}]"
     user_credential.save!
   end
