@@ -59,7 +59,8 @@ Rails.application.configure do
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
-  config.active_job.queue_adapter = GoodJob::Adapter.new(:execution_mode => :external)
+  config.active_job.queue_adapter = :good_job
+  config.good_job.execution_mode = :external
 
   # https://guides.rubyonrails.org/action_mailer_basics.html#action-mailer-configuration
   if Rails.configuration.x.mailers.enable_smtp_sending

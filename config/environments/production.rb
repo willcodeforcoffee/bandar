@@ -101,7 +101,8 @@ Rails.application.configure do
   # config.active_record.database_resolver = ActiveRecord::Middleware::DatabaseSelector::Resolver
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
 
-  config.active_job.queue_adapter = GoodJob::Adapter.new(:execution_mode => :external)
+  config.active_job.queue_adapter = :good_job
+  config.good_job.execution_mode = :external
 
   # https://guides.rubyonrails.org/action_mailer_basics.html#action-mailer-configuration
   config.action_mailer.delivery_method = :smtp

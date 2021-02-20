@@ -45,7 +45,8 @@ Rails.application.configure do
   # Raises error for missing translations.
   # config.action_view.raise_on_missing_translations = true
 
-  config.active_job.queue_adapter = GoodJob::Adapter.new(:execution_mode => :inline)
+  config.active_job.queue_adapter = :good_job
+  config.good_job.execution_mode = :inline
 
   config.action_mailer.default_url_options = { host: "example.com" }
   config.x.mailers.system_mailer = {

@@ -93,6 +93,7 @@ Rails/Output:
     It is disabled for Rake tasks where the Rails logger is not used.
   Enabled: true
   Exclude:
+    - "db/seeds.rb"
     - "lib/tasks/*"
 
 RSpec/FilePath:
