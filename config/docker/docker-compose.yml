@@ -5,7 +5,7 @@ services:
     image: bandar-proxy:latest
     command: sh -c "/wait && nginx"
     environment:
-      WAIT_HOSTS: web:4040
+      WAIT_HOSTS: web:6040
       WAIT_BEFORE_HOSTS: 15 # Wait before checking for web to be started
       WAIT_HOSTS_TIMEOUT: 150 # Give 2.5min to run for migrations and asset compilation
       WAIT_SLEEP_INTERVAL: 10
@@ -24,7 +24,7 @@ services:
       WAIT_HOSTS_TIMEOUT: 60
     restart: always
     ports:
-      - 4040:4040
+      - 6040:6040
     volumes:
       - log-data:/bandar/log
       - webassets-data:/var/assets:rw

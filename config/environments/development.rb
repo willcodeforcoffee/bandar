@@ -81,6 +81,6 @@ Rails.application.configure do
   end
   config.action_mailer.default_url_options = {
     host: ENV.fetch("HOST_NAME", "localhost").downcase,
-    port: ENV.fetch("PORT", 4040),
+    port: ENV.fetch("PORT", 6040),
   }
 end
