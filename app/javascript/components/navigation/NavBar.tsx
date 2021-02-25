@@ -41,15 +41,11 @@ export function NavBar(props: NavBarProps): JSX.Element {
 
   function generateLogoutButton(): ReactNode {
     return (
-      <form method="DELETE" action={props.paths.signOut}>
-        <button
-          type="submit"
-          name="Logout"
-          className="block sm:inline-block px-2 py-1 mt-1 text-white rounded-md hover:bg-gray-800"
-        >
-          Logout
-        </button>
-      </form>
+      <div className="block sm:inline-block px-2 py-1 mt-1 text-white rounded-md hover:bg-gray-800">
+        <a rel="nofollow" data-method="delete" href={props.paths.signOut}>
+          Sign out
+        </a>
+      </div>
     );
   }
 
