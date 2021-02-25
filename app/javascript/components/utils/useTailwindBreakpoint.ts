@@ -7,16 +7,20 @@ enum TailwindBreakpoint {
   md = "md",
   lg = "lg",
   xl = "xl",
+  xl2 = "2xl",
 }
 
 const smBreakpoint = 640;
 const mdBreakpoint = 768;
 const lgBreakpoint = 1024;
 const xlBreakpoint = 1280;
+const xl2Breakpoint = 1536;
 
 function getTailwindBreakpoint(vw: number): TailwindBreakpoint {
   // Breakpoints are by min-width so to match the breakpoint it has to be minimal width
-  if (vw >= xlBreakpoint) {
+  if (vw >= xl2Breakpoint) {
+    return TailwindBreakpoint.xl2;
+  } else if (vw >= xlBreakpoint) {
     return TailwindBreakpoint.xl;
   } else if (vw >= lgBreakpoint) {
     return TailwindBreakpoint.lg;
